@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .logo {
@@ -18,14 +18,16 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-title{
+  color: purple;
 }
+
+.input-dimensions{
+  max-width: 3em;
+  margin: 1em 1em;
+  padding: .5em .5em;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
