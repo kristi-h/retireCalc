@@ -21,12 +21,38 @@
 /* app */
 .app{
   columns: 2 auto;
-  width: 720px;
-  height: 650px;
+  /* background: linear-gradient(33deg, #6cacff, #8debff);
+  width: 900px;
+  height: 350px; */
+  /* transform: skew(15deg); */
   padding: 8px;
   /* border: 5px solid gray; */
   margin: 0;
-  border-radius: 10% 30% 50% 70%;
+  /* border-radius: 10% 30% 50% 70%; */
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+}
+
+/* age container */
+.age-container{
+  columns: 2 auto;
+  width: 600px;
+  height: 600px;
+  padding: 8px;
+  /* border: 5px solid gray; */
+  margin: 0;
+  border-radius: 10% 30% 50% 90%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* retirement container */
+.retirement-container{
+  columns: 2 auto;
+  width: 600px;
+  height: 600px;
+  padding: 8px;
+  /* border: 5px solid gray; */
+  margin: 0;
+  border-radius: 10% 30% 90% 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
