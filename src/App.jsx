@@ -23,7 +23,7 @@ function App() {
       [name]: value,
     }))
   }
-  // console.log("bday", birthday)
+
 
   function handleInputRetirement(e){
     const {name, value} = e.target
@@ -32,13 +32,22 @@ function App() {
       [name]: value,
     }))
   }
-  // console.log("retirement", retirement)
+
+  function handleBirthdaySubmit(e){
+    e.preventDefault()
+    console.log("bday", birthday)
+  }
+
+  function handleRetirementSubmit(e){
+    e.preventDefault()
+    console.log("retirement", retirement)
+  }
 
   return (
     <div className="app">
       
       <div className="age-container">
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleBirthdaySubmit}>
           <div className="birthday">
             <h3 className="input-title">Birthday</h3>
 
@@ -51,6 +60,7 @@ function App() {
             <label htmlFor="birthday-year"> Year: </label>
             <input type="number" className="input-dimensions" id="birthday-year" name="year" value={birthday.year} onChange={handleInputBirthday}/>
           </div>
+          <button>Submit</button>
         </form>
       </div>
 
@@ -64,7 +74,7 @@ function App() {
 
       {/* <img src="icon-arrow" alt="divider" /> */}
       <div className="retirement-container">
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleRetirementSubmit}>
           <div className="retirement-goal">
             <h3 className="input-title">Desired Retirement Date</h3>
 
@@ -77,6 +87,7 @@ function App() {
             <label htmlFor="retirement-year"> Year: </label>
             <input type="number" className="input-dimensions" id="retirement-year" name="year" value={retirement.year} onChange={handleInputRetirement} />
           </div>
+          <button>Submit</button>
         </form>
       </div>
 
