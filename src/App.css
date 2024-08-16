@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .logo {
@@ -18,14 +18,64 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* app */
+.app{
+  columns: 2 auto;
+  /* background: linear-gradient(33deg, #6cacff, #8debff);
+  width: 900px;
+  height: 350px; */
+  /* transform: skew(15deg); */
+  padding: 8px;
+  /* border: 5px solid gray; */
+  margin: 0;
+  /* border-radius: 10% 30% 50% 70%; */
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
+
+/* age container */
+.age-container{
+  columns: 2 auto;
+  width: 600px;
+  height: 600px;
+  padding: 8px;
+  /* border: 5px solid gray; */
+  margin: 0;
+  border-radius: 10% 30% 50% 90%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* retirement container */
+.retirement-container{
+  columns: 2 auto;
+  width: 600px;
+  height: 600px;
+  padding: 8px;
+  /* border: 5px solid gray; */
+  margin: 0;
+  border-radius: 10% 30% 90% 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* form */
+
+.input-title{
+  color: purple;
+}
+
+.input-dimensions{
+  max-width: 3em;
+  margin: 1em 1em;
+  padding: .5em .5em;
+}
+
+/* display */
+.display-container{
+  /* columns: 2 auto; */
+  margin-top: 3em;
+  padding-top: 1em;
+}
+
+/* misc */
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
@@ -148,3 +198,4 @@
   font-weight: 900;
   font-style: italic;
 }
+
