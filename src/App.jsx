@@ -15,10 +15,6 @@ function App() {
     day: 0,
   })
 
-  const [showBirthday, setShowBirthday] = useState(false)
-  const [showRetirement, setShowRetirement] = useState(false)
- 
-
   function handleInputBirthday(e){
     const {name, value} = e.target
     setBirthday((prev)=>({
@@ -104,7 +100,7 @@ function App() {
 
       <div className="display-container poppins-bold">
         <div className="display-age">
-          <h1>{showBirthday ? birthday.year : 0} Years</h1>
+          <h1>{birthday.year} Years</h1>
           <h1>{birthday.month} Months</h1>
           <h1>{birthday.day} Days</h1>
         </div>
