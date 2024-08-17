@@ -61,12 +61,13 @@ function App() {
     let day = today.getDate()
     let year = today.getFullYear()
     
+    year = year - birthday.year
     if (month < parseInt(birthday.month)){
        year -= 1
        console.log("month", month)
        month = (month + 12) - birthday.month
        console.log("monthII", month)
-       year = year - birthday.year
+      
        if (day < birthday.day){
         month -= 1
         day = (day +30) - birthday.day
@@ -75,7 +76,6 @@ function App() {
       month -=1
       day = (day +30) - birthday.day
     } else {
-      year = year - birthday.year
       month = month - birthday.month
       day = day - birthday.day
     }
