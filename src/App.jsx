@@ -27,27 +27,27 @@ function App() {
     day: 0,
   })
 
+
   function handleInputBirthday(e){
     const {name, value} = e.target
     setBirthday((prev)=>({
       ...prev,
-      [name]: value,
+      [name]: parseInt(value),  ///converting string type to number type, will show warning on ""input
     }))
   }
-
 
   function handleInputRetirement(e){
     const {name, value} = e.target
     setRetirement((prev) => ({
       ...prev, 
-      [name]: value,
+      [name]: parseInt(value),
     }))
   }
 
   function handleBirthdaySubmit(e){
     e.preventDefault()
     console.log("bday", birthday)
-    timeChange()
+    birthdayTimeChange()
   }
 
   function handleRetirementSubmit(e){
@@ -55,29 +55,31 @@ function App() {
     console.log("retirement", retirement)
   }
 
-  function timeChange(){
-    const today = new Date()
-    let month = today.getMonth()+1
-    let day = today.getDate()
-    let year = today.getFullYear()
-    
-    year = year - birthday.year
-    if (month < parseInt(birthday.month)){
-       year -= 1
-       console.log("month", month)
-       month = (month + 12) - birthday.month
-       console.log("monthII", month)
+  const today = new Date()
+  const todayMonth = today.getMonth() + 1
+  const todayDay = today.getDate()
+  const todayYear = today.getFullYear()
+
+  function birthdayTimeChange(){
+    let yearDiff = todayYear - birthday.year
+    let monthDiff;
+    let dayDiff;
+
+    if (todayMonth < birthday.month){
+      yearDiff -= 1;
+      monthDiff = (todayMonth + 12) - birthday.month;
       
-       if (day < birthday.day){
-        month -= 1
-        day = (day +30) - birthday.day
+      if (todayDay < birthday.day){
+        monthDiff -= 1;
+        dayDiff = (todayDay + 30) - birthday.day;
       }
-    } else if (day < parseInt(birthday.day)){
-      month -=1
-      day = (day +30) - birthday.day
+
+    } else if (todayDay < birthday.day){
+      monthDiff -=1;
+      dayDiff = (todayDay +30) - birthday.day
     } else {
-      month = month - birthday.month
-      day = day - birthday.day
+      monthDiff = todayMonth - birthday.month
+      dayDiff = todayDay - birthday.day
     }
     
     console.log("monthIII", month) 
