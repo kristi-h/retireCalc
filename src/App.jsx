@@ -62,31 +62,27 @@ function App() {
 
   function birthdayTimeChange(){
     let yearDiff = todayYear - birthday.year
-    let monthDiff;
-    let dayDiff;
+    let monthDiff = 0;
+    let dayDiff = 0;
 
     if (todayMonth < birthday.month){
       yearDiff -= 1;
-      monthDiff = (todayMonth + 12) - birthday.month;
-      
-      if (todayDay < birthday.day){
-        monthDiff -= 1;
-        dayDiff = (todayDay + 30) - birthday.day;
-      }
-
-    } else if (todayDay < birthday.day){
-      monthDiff -=1;
-      dayDiff = (todayDay +30) - birthday.day
-    } else {
-      monthDiff = todayMonth - birthday.month
-      dayDiff = todayDay - birthday.day
+      monthDiff = 12;
     }
-    
-    console.log("monthIII", month) 
+      
+    if (todayDay < birthday.day){
+      monthDiff -= 1;
+      dayDiff = 30;
+    }
+
+    monthDiff = monthDiff + todayMonth - birthday.month
+    dayDiff = dayDiff + todayDay - birthday.day
+
+
     setAge(({
-      year: year,
-      month: month,
-      day: day
+      year: yearDiff,
+      month: monthDiff,
+      day: dayDiff
     }))
   }
 
