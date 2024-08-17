@@ -52,14 +52,14 @@ function App() {
     
     if (month < parseInt(birthday.month)){
        year -= 1
+       console.log("month", month)
        month = (month + 12) - birthday.month
-    } 
-      if (day < birthday.day){
+       console.log("monthII", month)
+       if (day < birthday.day){
         month -= 1
         day = (day +30) - birthday.day
       }
-   
-    else if (day < parseInt(birthday.day)){
+    } else if (day < parseInt(birthday.day)){
       month -=1
       day = (day +30) - birthday.day
     } else {
@@ -67,7 +67,8 @@ function App() {
       month = month - birthday.month
       day = day - birthday.day
     }
- 
+    
+    console.log("monthIII", month)
     setBirthday(({
       year: year,
       month: month,
