@@ -14,6 +14,9 @@ function App() {
     month: 0,
     day: 0,
   })
+
+  const [showBirthday, setShowBirthday] = useState(false)
+  const [showRetirement, setShowRetirement] = useState(false)
  
 
   function handleInputBirthday(e){
@@ -36,6 +39,8 @@ function App() {
   function handleBirthdaySubmit(e){
     e.preventDefault()
     console.log("bday", birthday)
+    // calculateTime()
+    setShowBirthday(!showBirthday)
   }
 
   function handleRetirementSubmit(e){
@@ -43,13 +48,28 @@ function App() {
     console.log("retirement", retirement)
   }
 
+  function calculateBirthdayTime() {
+    const today = new Date()
+    const todayMonth = today.getMonth() + 1
+    // const todayDate = today.getDate()
+    // const todayYear = today.getFullYear()
+    // console.log(todayMonth, todayDate, todayYear)
+    const diffMonth = birthday.month - todayMonth
+    setBirthday({...birthday, month:diffMonth})
+  }
+
+  function calculateRetirementTime(){
+
+  }
+
+
   return (
     <div className="app">
       
       <div className="age-container">
         <form className="form-container" onSubmit={handleBirthdaySubmit}>
           <div className="birthday">
-            <h3 className="input-title">Birthday</h3>
+            <h3 className="input-title">Birthday Date:</h3>
 
             <label htmlFor="birthday-day"> Day: </label>
             <input type="number" className="input-dimensions" id="birthday-day" name="day" value={birthday.day} onChange={handleInputBirthday}/>
@@ -66,7 +86,7 @@ function App() {
 
       <div className="display-container poppins-bold">
         <div className="display-age">
-          <h1>{birthday.year} Years</h1>
+          <h1>{showBirthday ? birthday.year : 0} Years</h1>
           <h1>{birthday.month} Months</h1>
           <h1>{birthday.day} Days</h1>
         </div>
