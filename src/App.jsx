@@ -15,6 +15,17 @@ function App() {
     day: 0,
   })
  
+  const [age, setAge] = useState({
+    year: 0, 
+    month: 0,
+    day: 0,
+  })
+  
+  const [retirementCountdown, setRetirementCoutdown] = useState({
+    year: 0, 
+    month: 0,
+    day: 0,
+  })
 
   function handleInputBirthday(e){
     const {name, value} = e.target
@@ -50,25 +61,27 @@ function App() {
     let day = today.getDate()
     let year = today.getFullYear()
     
+    year = year - birthday.year
     if (month < parseInt(birthday.month)){
        year -= 1
+       console.log("month", month)
        month = (month + 12) - birthday.month
-    } 
-      if (day < birthday.day){
+       console.log("monthII", month)
+      
+       if (day < birthday.day){
         month -= 1
         day = (day +30) - birthday.day
       }
-   
-    else if (day < parseInt(birthday.day)){
+    } else if (day < parseInt(birthday.day)){
       month -=1
       day = (day +30) - birthday.day
     } else {
-      year = year - birthday.year
       month = month - birthday.month
       day = day - birthday.day
     }
- 
-    setBirthday(({
+    
+    console.log("monthIII", month) 
+    setAge(({
       year: year,
       month: month,
       day: day
@@ -99,9 +112,9 @@ function App() {
 
       <div className="display-container poppins-bold">
         <div className="display-age">
-          <h1>{birthday.year} Years</h1>
-          <h1>{birthday.month} Months</h1>
-          <h1>{birthday.day} Days</h1>
+          <h1>{age.year} Years</h1>
+          <h1>{age.month} Months</h1>
+          <h1>{age.day} Days</h1>
         </div>
       </div>
 
