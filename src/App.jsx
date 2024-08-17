@@ -47,9 +47,9 @@ function App() {
     e.preventDefault()
     console.log("retirement", retirement)
   }
+  const today = new Date()
 
   function calculateBirthdayTime() {
-    const today = new Date()
     const todayMonth = today.getMonth() + 1
     // const todayDate = today.getDate()
     // const todayYear = today.getFullYear()
@@ -64,8 +64,10 @@ function App() {
 
 
   return (
+    <>
+    <h2>Today's Date:  {today.toDateString()}</h2>
+
     <div className="app">
-      
       <div className="age-container">
         <form className="form-container" onSubmit={handleBirthdaySubmit}>
           <div className="birthday">
@@ -119,6 +121,7 @@ function App() {
         </div>
       </div>
   </div>
+  </>
   )
 }
 
