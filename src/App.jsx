@@ -39,27 +39,43 @@ function App() {
   function handleBirthdaySubmit(e){
     e.preventDefault()
     console.log("bday", birthday)
-    // calculateTime()
-    setShowBirthday(!showBirthday)
+    timeChange()
   }
 
   function handleRetirementSubmit(e){
     e.preventDefault()
     console.log("retirement", retirement)
   }
-  const today = new Date()
 
-  function calculateBirthdayTime() {
-    const todayMonth = today.getMonth() + 1
-    // const todayDate = today.getDate()
-    // const todayYear = today.getFullYear()
-    // console.log(todayMonth, todayDate, todayYear)
-    const diffMonth = birthday.month - todayMonth
-    setBirthday({...birthday, month:diffMonth})
-  }
-
-  function calculateRetirementTime(){
-
+  function timeChange(){
+    const today = new Date()
+    let month = today.getMonth()+1
+    let day = today.getDate()
+    let year = today.getFullYear()
+    
+    if (month < parseInt(birthday.month)){
+       year -= 1
+       month = (month + 12) - birthday.month
+    } 
+      if (day < birthday.day){
+        month -= 1
+        day = (day +30) - birthday.day
+      }
+   
+    else if (day < parseInt(birthday.day)){
+      month -=1
+      day = (day +30) - birthday.day
+    } else {
+      year = year - birthday.year
+      month = month - birthday.month
+      day = day - birthday.day
+    }
+ 
+    setBirthday(({
+      year: year,
+      month: month,
+      day: day
+    }))
   }
 
 
