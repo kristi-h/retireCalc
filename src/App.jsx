@@ -36,12 +36,45 @@ function App() {
   function handleBirthdaySubmit(e){
     e.preventDefault()
     console.log("bday", birthday)
+    timeChange()
   }
 
   function handleRetirementSubmit(e){
     e.preventDefault()
     console.log("retirement", retirement)
   }
+
+  function timeChange(){
+    const today = new Date()
+    let month = today.getMonth()+1
+    let day = today.getDate()
+    let year = today.getFullYear()
+    
+    if (month < parseInt(birthday.month)){
+       year -= 1
+       month = (month + 12) - birthday.month
+    } 
+      if (day < birthday.day){
+        month -= 1
+        day = (day +30) - birthday.day
+      }
+   
+    else if (day < parseInt(birthday.day)){
+      month -=1
+      day = (day +30) - birthday.day
+    } else {
+      year = year - birthday.year
+      month = month - birthday.month
+      day = day - birthday.day
+    }
+ 
+    setBirthday(({
+      year: year,
+      month: month,
+      day: day
+    }))
+  }
+
 
   return (
     <div className="app">
