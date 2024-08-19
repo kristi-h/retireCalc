@@ -47,12 +47,13 @@ function App() {
   function handleBirthdaySubmit(e){
     e.preventDefault()
     console.log("bday", birthday)
-    birthdayTimeChange()
+    calcBirthday()
   }
 
   function handleRetirementSubmit(e){
     e.preventDefault()
     console.log("retirement", retirement)
+    calcRetirement()
   }
 
   const today = new Date()
@@ -60,7 +61,7 @@ function App() {
   const todayDay = today.getDate()
   const todayYear = today.getFullYear()
 
-  function birthdayTimeChange(){
+  function calcBirthday(){
     let yearDiff = todayYear - birthday.year
     let monthDiff = 0;
     let dayDiff = 0;
@@ -78,8 +79,32 @@ function App() {
     monthDiff = monthDiff + todayMonth - birthday.month
     dayDiff = dayDiff + todayDay - birthday.day
 
-
     setAge(({
+      year: yearDiff,
+      month: monthDiff,
+      day: dayDiff
+    }))
+  }
+
+  function calcRetirement(){
+    let yearDiff = retirement.year - todayYear
+    let monthDiff = 0;
+    let dayDiff = 0;
+
+    if (retirement.month < todayMonth){
+      yearDiff -= 1;
+      monthDiff = 12;
+    }
+      
+    if (retirement.day < todayDay){
+      monthDiff -= 1;
+      dayDiff = 30;
+    }
+
+    monthDiff = monthDiff + retirement.month - todayMonth;
+    dayDiff = dayDiff + retirement.day - todayDay;
+
+    setRetirementCoutdown(({
       year: yearDiff,
       month: monthDiff,
       day: dayDiff
@@ -139,9 +164,9 @@ function App() {
 
       <div className="display-container poppins-bold">
         <div className="display-retirement-countdown">
-          <h1>{retirement.year} Years</h1>
-          <h1>{retirement.month} Months</h1>
-          <h1>{retirement.day} Days</h1>
+          <h1>{retirementCountdown.year} Years</h1>
+          <h1>{retirementCountdown.month} Months</h1>
+          <h1>{retirementCountdown.day} Days</h1>
         </div>
       </div>
   </div>
