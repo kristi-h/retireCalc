@@ -27,27 +27,27 @@ function App() {
     day: 0,
   })
 
+
   function handleInputBirthday(e){
     const {name, value} = e.target
     setBirthday((prev)=>({
       ...prev,
-      [name]: value,
+      [name]: parseInt(value),  ///converting string type to number type, will show warning on ""input
     }))
   }
-
 
   function handleInputRetirement(e){
     const {name, value} = e.target
     setRetirement((prev) => ({
       ...prev, 
-      [name]: value,
+      [name]: parseInt(value),
     }))
   }
 
   function handleBirthdaySubmit(e){
     e.preventDefault()
     console.log("bday", birthday)
-    timeChange()
+    birthdayTimeChange()
   }
 
   function handleRetirementSubmit(e){
@@ -55,47 +55,47 @@ function App() {
     console.log("retirement", retirement)
   }
 
-  function timeChange(){
-    const today = new Date()
-    let month = today.getMonth()+1
-    let day = today.getDate()
-    let year = today.getFullYear()
-    
-    year = year - birthday.year
-    if (month < parseInt(birthday.month)){
-       year -= 1
-       console.log("month", month)
-       month = (month + 12) - birthday.month
-       console.log("monthII", month)
-      
-       if (day < birthday.day){
-        month -= 1
-        day = (day +30) - birthday.day
-      }
-    } else if (day < parseInt(birthday.day)){
-      month -=1
-      day = (day +30) - birthday.day
-    } else {
-      month = month - birthday.month
-      day = day - birthday.day
+  const today = new Date()
+  const todayMonth = today.getMonth() + 1
+  const todayDay = today.getDate()
+  const todayYear = today.getFullYear()
+
+  function birthdayTimeChange(){
+    let yearDiff = todayYear - birthday.year
+    let monthDiff = 0;
+    let dayDiff = 0;
+
+    if (todayMonth < birthday.month){
+      yearDiff -= 1;
+      monthDiff = 12;
     }
-    
-    console.log("monthIII", month) 
+      
+    if (todayDay < birthday.day){
+      monthDiff -= 1;
+      dayDiff = 30;
+    }
+
+    monthDiff = monthDiff + todayMonth - birthday.month
+    dayDiff = dayDiff + todayDay - birthday.day
+
+
     setAge(({
-      year: year,
-      month: month,
-      day: day
+      year: yearDiff,
+      month: monthDiff,
+      day: dayDiff
     }))
   }
 
 
   return (
+    <>
+    <h2>Today's Date:  {today.toDateString()}</h2>
+
     <div className="app">
-      
       <div className="age-container">
         <form className="form-container" onSubmit={handleBirthdaySubmit}>
           <div className="birthday">
-            <h3 className="input-title">Birthday</h3>
+            <h3 className="input-title">Birthday Date:</h3>
 
             <label htmlFor="birthday-day"> Day: </label>
             <input type="number" className="input-dimensions" id="birthday-day" name="day" value={birthday.day} onChange={handleInputBirthday}/>
@@ -145,6 +145,7 @@ function App() {
         </div>
       </div>
   </div>
+  </>
   )
 }
 
