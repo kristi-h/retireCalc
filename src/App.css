@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
+  color: black;
 }
 
 .logo {
@@ -197,5 +198,9 @@
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-style: italic;
+}
+
+.submit-btn{
+  color: white;
 }
 
