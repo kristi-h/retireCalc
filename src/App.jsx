@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import './App.css'
 // import {icon-arrow} from "../public/icon-arrow"
 import ValidateForm from './ValidateForm'
+import ValidateForm2 from './ValidateForm2'
+
 
 function App() {
  
@@ -19,7 +21,7 @@ function App() {
 
 
 
-  function calcBirthday(){
+  function calcBirthday(birthday){
     let yearDiff = todayYear - birthday.year
     let monthDiff = 0;
     let dayDiff = 0;
@@ -44,7 +46,7 @@ function App() {
     }))
   }
 
-  function calcRetirement(){
+  function calcRetirement(retirement){
     let yearDiff = retirement.year - todayYear
     let monthDiff = 0;
     let dayDiff = 0;
@@ -76,7 +78,7 @@ function App() {
 
     <div className="app">
       <div className="age-container">
-        <ValidateForm />
+        <ValidateForm calcBirthday={calcBirthday} />
       </div>
 
       <div className="display-container poppins-bold">
@@ -89,7 +91,7 @@ function App() {
 
       {/* <img src="icon-arrow" alt="divider" /> */}
       <div className="retirement-container">
-        <ValidateForm />
+        <ValidateForm2 calcRetirement={calcRetirement}/>
       </div>
 
       <div className="display-container poppins-bold">
