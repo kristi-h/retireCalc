@@ -80,23 +80,21 @@ function App() {
     <h2>Today's Date:  {today.toDateString()}</h2>
 
     <div className="app">
-      <div className="age-container">
+      <div className="age-container col-1">
         <ValidateForm isBirthday={true} calcBirthday={calcBirthday} calcRetirement={calcRetirement}/>
-      </div>
-
-      <div className="display-container poppins-bold">
-        <div className="display-age">
-          <h1>{age.year} Years</h1>
-          <h1>{age.month} Months</h1>
-          <h1>{age.day} Days</h1>
+        <div className="display-container poppins-bold">
+          <div className="display-age">
+            <h1>{age.year} Years</h1>
+            <h1>{age.month} Months</h1>
+            <h1>{age.day} Days</h1>
+          </div>
         </div>
       </div>
 
-      {/* <img src="icon-arrow" alt="divider" /> */}
-      <div className="retirement-container">
-        <ValidateForm isBirthday={false} calcBirthday={calcBirthday} calcRetirement={calcRetirement}/>
-      </div>
 
+      {/* <img src="icon-arrow" alt="divider" /> */}
+      <div className="retirement-container col-2">
+        <ValidateForm isBirthday={false} calcBirthday={calcBirthday} calcRetirement={calcRetirement}/>
       <div className="display-container poppins-bold">
         <div className="display-retirement-countdown">
           <h1>{retirementCountdown.year} Years</h1>
@@ -104,6 +102,8 @@ function App() {
           <h1>{retirementCountdown.day} Days</h1>
         </div>
       </div>
+      </div>
+
   </div>
   </>
   )
