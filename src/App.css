@@ -21,7 +21,7 @@
 
 /* app */
 .app{
-  columns: 2 auto;
+  /* columns: 2 auto; */
   /* background: linear-gradient(33deg, #6cacff, #8debff);
   width: 900px;
   height: 350px; */
@@ -204,3 +204,21 @@
   color: white;
 }
 
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .app { columns: 1 auto;}
+  .col-s-1 {width: 50%;}
+  .col-s-2 {width: 50%;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .app { columns: 2 auto;}
+  .col-1 {width: 100%;}
+  .col-2 {width: 100%;}
+}
