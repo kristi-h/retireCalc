@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.css'
 // import {icon-arrow} from "../public/icon-arrow"
 import ValidateForm from './ValidateForm'
-import ValidateForm2 from './ValidateForm2'
 
 
 function App() {
@@ -19,11 +18,11 @@ function App() {
     day: 0,
   })
 
-
   const today = new Date()
   const todayMonth = today.getMonth() + 1
   const todayDay = today.getDate()
   const todayYear = today.getFullYear()
+
 
   function calcBirthday(birthday){
     let yearDiff = todayYear - birthday.year
@@ -80,9 +79,11 @@ function App() {
     <>
     <h2>Today's Date:  {today.toDateString()}</h2>
 
+
     <div className="app row">
+
       <div className="age-container col-1 col-s-1">
-        <ValidateForm calcBirthday={calcBirthday} />
+        <ValidateForm isBirthday={true} calcBirthday={calcBirthday} calcRetirement={calcRetirement}/>
       </div>
 
       <div className="display-container poppins-bold">
@@ -94,8 +95,10 @@ function App() {
       </div>
 
       {/* <img src="icon-arrow" alt="divider" /> */}
+
       <div className="retirement-container col-2 col-s-2">
-        <ValidateForm2 calcRetirement={calcRetirement}/>
+        <ValidateForm isBirthday={false} calcBirthday={calcBirthday} calcRetirement={calcRetirement}/>
+
       </div>
 
       <div className="display-container poppins-bold">
