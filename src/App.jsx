@@ -81,7 +81,7 @@ function App() {
     <h2>Today's Date:  {today.toDateString()}</h2>
 
     <div className="app">
-      <div className="age-container">
+      <div className="age-container col-1">
         <ValidateForm calcBirthday={calcBirthday} />
       </div>
 
@@ -94,7 +94,7 @@ function App() {
       </div>
 
       {/* <img src="icon-arrow" alt="divider" /> */}
-      <div className="retirement-container">
+      <div className="retirement-container col-2">
         <ValidateForm2 calcRetirement={calcRetirement}/>
       </div>
 
