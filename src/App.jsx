@@ -80,13 +80,13 @@ function App() {
     <>
     <h2>Today's Date:  {today.toDateString()}</h2>
 
-    <div className="app">
-      <div className="age-container col-1">
+    <div className="app row">
+      <div className="age-container col-1 col-s-1">
         <ValidateForm calcBirthday={calcBirthday} />
       </div>
 
       <div className="display-container poppins-bold">
-        <div className="display-age">
+        <div className="display-age col-3 col-s-3">
           <h1>{age.year} Years</h1>
           <h1>{age.month} Months</h1>
           <h1>{age.day} Days</h1>
@@ -94,12 +94,12 @@ function App() {
       </div>
 
       {/* <img src="icon-arrow" alt="divider" /> */}
-      <div className="retirement-container col-2">
+      <div className="retirement-container col-2 col-s-2">
         <ValidateForm2 calcRetirement={calcRetirement}/>
       </div>
 
       <div className="display-container poppins-bold">
-        <div className="display-retirement-countdown">
+        <div className="display-retirement-countdown col-4 col-s-4">
           <h1>{retirementCountdown.year} Years</h1>
           <h1>{retirementCountdown.month} Months</h1>
           <h1>{retirementCountdown.day} Days</h1>
