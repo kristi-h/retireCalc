@@ -77,10 +77,8 @@ function App() {
 
   return (
     <>
-    <h2>Today's Date:  {today.toDateString()}</h2>
-
-
-    <div className="app row">
+    <h2>Today`&apos;`s Date:  {today.toDateString()}</h2>
+    <div className="app">
 
       <div className="age-container col-1 col-s-1">
         <ValidateForm isBirthday={true} calcBirthday={calcBirthday} calcRetirement={calcRetirement}/>
