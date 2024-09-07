@@ -1,8 +1,21 @@
-# React + Vite
+# retireCalc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Overview
+This app is an age and retirement date generator.
 
-Currently, two official plugins are available:
+### Features 
+Enter any birthdate to get the real age, not only displayed in years but also in months and days.
+Enter your retirement goal year to see the time left til retirement.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Running the project
+1. Clone this project locally
+2. cd into the project directory
+3. To run the app on your local device, make sure to install the appropriate packages and run using the following command:
+```bash
+    npm install 
+    npm run dev
+```
+4. Enter your birthdate and and retirement goal to get started.
+
+### Dependencies 
+React
